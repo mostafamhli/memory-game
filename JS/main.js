@@ -1,3 +1,4 @@
+
 document.querySelector(".control-buttons span").onclick = function () {
     (async () => {
     await Swal.fire({
@@ -40,9 +41,8 @@ blocks.forEach((block, index) => {
         block.children[0].style.cssText = 'transform:rotateY(-360deg);'
         block.children[1].style.cssText = 'transform:rotateY(-180deg);'
         blocksContainer.classList.remove('no-clicking')
-    },15000)
+    },10000)
 
-    console.log(block.children)
     //block.classList.remove('front')
     block.addEventListener("click", () => {
     flipBlock(block);
@@ -93,7 +93,9 @@ function checkMatchedBlock(firstBlock, secondBlock) {
     document.getElementById("success").play();
     } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
-
+    if(triesElement.innerHTML > 5){
+        JSalert()
+    }
     setTimeout(() => {
         firstBlock.classList.remove("is-flipped");
         secondBlock.classList.remove("is-flipped");
@@ -121,11 +123,28 @@ function shuffle(array) {
 }
 
 function diditWon() {
-    didWon = true;
+    didHeWon = true;
     blocks.forEach((block)=>{
         if(! block.classList.contains('has-match')){
-            didWon = false;
+            didHeWon = false;
         }
     })
-    return didWon;
+    return didHeWon;
+}
+
+function JSalert(){
+    (async () => {
+        await Swal.fire({
+        title: 'Do you want to try again!?',
+        showDenyButton: true,
+        confirmButtonText: 'Yes',
+        denyButtonText: `No`,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.reload();
+        } else if (result.isDenied) {
+            window.opener = self;
+            window.close();
+        }
+    })})()
 }
