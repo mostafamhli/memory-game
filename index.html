@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memory Game</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <!-- Main Template CSS File -->
   <link rel="stylesheet" href="css/main.css" />
   <!-- Render All Elements Normally -->
@@ -14,16 +15,36 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="game-over">
+      <div class="text">Game Over</div>
+      <div class="question">Would you like to play again?</div>
+      <div class="butt">
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+      </div>
+    </div>
+
+    <div class="Congrat">
+      <div class="text">Congratulations!</div>
+      <div class="question">Do you want to keep playing?</div>
+      <div class="butt">
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+      </div>
+    </div>
+  </div>
+
   <div class="main-container">
     <div class="control-buttons">
-      <span>Start Game</span>
+      <div class="text">You have 10 seconds before the photos lock</div>
+      <span>
+        Start
+      </span>
     </div>
     <div class="info-container">
-      <div class="name">
-        Hello: <span></span>
-      </div>
       <div class="tries">
-        Wrong Tries: <span>0</span>
+        Wrong Tries: <span>0</span><strong style="color: #9d4edd;"> /5</strong>
       </div>
     </div>
     <div class="memory-game-blocks">
